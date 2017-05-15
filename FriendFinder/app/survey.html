@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Friend Finder - Find your match!</title>
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <script src="/data/friends.js"></script>
+    <script src="/routing/apiroutes.js"></script>
+    <script src="/routing/htmlroutes.js"></script>
+
+
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>Your Survey Questions</h1>
+        <hr>
+        <h3><strong>Personal Information</strong></h3>
+        <hr>
+        <h4>Name
+            <h6>*required input</h6>
+        </h4>
+        <input type="text" name="" id="name" class="form-control" required="">
+        <h4>URL link to image
+            <h6>*required input</h6>
+        </h4>
+        <input type="text" name="" id="image" class="form-control" required="">
+        <hr>
+        <h3><strong>Question 1</strong></h3>
+        <h4>I consider myself to be a loyal person.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option> 
+      	</select>
+        <h3><strong>Question 2</strong></h3>
+        <h4>I am opened minded and up to new activities.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 3</strong></h3>
+        <h4>I am comfortable in social settings.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 4</strong></h3>
+        <h4>I am a people pleaser.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 5</strong></h3>
+        <h4>When it comes to people's problems, I am a good listener.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 6</strong></h3>
+        <h4>I find that I am a very trusting person.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 7</strong></h3>
+        <h4>I would rather stay at home then go out and participate in activities.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 8</strong></h3>
+        <h4>I don't get carried away with my fantasies or ideas.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 9</strong></h3>
+        <h4>I respect people despite their beliefs or background.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <h3><strong>Question 10</strong></h3>
+        <h4>I would rather tell someone the truth regardless of the consequence.</h4>
+        <select data-placeholder="" class="chosen-select" id="q1">
+	 		<option value="">Choose an option</option>
+            <option value="1">1 (Strongly Disagree)</option>
+            <option value="2">2 (Somewhat Disagree)</option>
+            <option value="3">3 (Neutral)</option>
+            <option value="4">4 (Somewhat Agree)</option>
+            <option value="5">5 (Strongly Agree)</option>
+      	</select>
+        <footer class="footer">
+            <div class="container">
+                <hr>
+                <a href="/app/data/friends">API FRIENDS LIST</a> |
+                <a href="https://github.com/kozineffect">A KOZINEFFECT PRODUCTION</a>
+            </div>
+        </footer>
+    </div>
+
+</body>
+
+</html>
