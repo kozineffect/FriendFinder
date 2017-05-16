@@ -7,6 +7,7 @@ var htmlroutes = require('./routing/htmlroutes.js');
 //Setting up the express app
 var app = express();
 var PORT = 3000;
+require("./routing/apiroutes.js")(app);
 
 // Sets up the Express app to handle data parsing
 app.use(bodyParser.json());
