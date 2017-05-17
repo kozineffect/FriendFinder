@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
-    <script src="/data/friends.js"></script>
+    <!--<script src="/data/friends.js"></script>
     <script src="/routing/apiroutes.js"></script>
-    <script src="/routing/htmlroutes.js"></script>
+    <script src="/routing/htmlroutes.js"></script>-->
 
 
 </head>
@@ -43,7 +43,7 @@
       	</select>
         <h3><strong>Question 2</strong></h3>
         <h4>I am opened minded and up to new activities.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q2">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -53,7 +53,7 @@
       	</select>
         <h3><strong>Question 3</strong></h3>
         <h4>I am comfortable in social settings.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q3">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -63,7 +63,7 @@
       	</select>
         <h3><strong>Question 4</strong></h3>
         <h4>I am a people pleaser.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q4">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -73,7 +73,7 @@
       	</select>
         <h3><strong>Question 5</strong></h3>
         <h4>When it comes to people's problems, I am a good listener.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q5">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -83,7 +83,7 @@
       	</select>
         <h3><strong>Question 6</strong></h3>
         <h4>I find that I am a very trusting person.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q6">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -93,7 +93,7 @@
       	</select>
         <h3><strong>Question 7</strong></h3>
         <h4>I would rather stay at home then go out and participate in activities.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q7">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -103,7 +103,7 @@
       	</select>
         <h3><strong>Question 8</strong></h3>
         <h4>I don't get carried away with my fantasies or ideas.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q8">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -113,7 +113,7 @@
       	</select>
         <h3><strong>Question 9</strong></h3>
         <h4>I respect people despite their beliefs or background.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q9">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -123,7 +123,7 @@
       	</select>
         <h3><strong>Question 10</strong></h3>
         <h4>I would rather tell someone the truth regardless of the consequence.</h4>
-        <select data-placeholder="" class="chosen-select" id="q1">
+        <select data-placeholder="" class="chosen-select" id="q10">
 	 		<option value="">Choose an option</option>
             <option value="1">1 (Strongly Disagree)</option>
             <option value="2">2 (Somewhat Disagree)</option>
@@ -131,18 +131,61 @@
             <option value="4">4 (Somewhat Agree)</option>
             <option value="5">5 (Strongly Agree)</option>
       	</select>
+        <br>
+        <button type="button" class="btn btn-danger btn-lg" id="submit">Submit</button>
         <footer class="footer">
             <div class="container">
                 <hr>
-                <a href="/app/data/friends">API FRIENDS LIST</a> |
+                <a href="/api/friends">API FRIENDS LIST</a> |
                 <a href="https://github.com/kozineffect">A KOZINEFFECT PRODUCTION</a>
             </div>
         </footer>
     </div>
 
-    <script type="text/javascript" src="/server.js">
-	
-	</script>
+    <script type="text/javascript">
+        $("#submit").on("click", function (event) {
+            event.preventDefault();
+
+            // Here we grab the form elements
+            var user = {
+                name: $("#name").val().trim(),
+                photo: $("#image").val().trim(),
+                scores: [
+                    $("#q1").val().trim(),
+                    $("#q2").val().trim(),
+                    $("#q3").val().trim(),
+                    $("#q4").val().trim(),
+                    $("#q5").val().trim(),
+                    $("#q6").val().trim(),
+                    $("#q7").val().trim(),
+                    $("#q8").val().trim(),
+                    $("#q9").val().trim(),
+                    $("#q10").val().trim()
+                ]
+            };
+
+            console.log(user);
+
+            $.post("/api/friends", user, 
+            function (data) {
+
+                    // Clear the form when submitting
+                    $("#name").val("");
+                    $("#image").val("");
+                    $("#q1").val("");
+                    $("#q2").val("");
+                    $("#q3").val("");
+                    $("#q4").val("");
+                    $("#q5").val("");
+                    $("#q6").val("");
+                    $("#q7").val("");
+                    $("#q8").val("");
+                    $("#q9").val("");
+                    $("#q10").val("");
+
+                });
+        });
+    </script>
 
 </body>
 
