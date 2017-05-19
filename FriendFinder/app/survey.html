@@ -132,7 +132,28 @@
             <option value="5">5 (Strongly Agree)</option>
       	</select>
         <br>
+        <br>
         <button type="button" class="btn btn-danger btn-lg" id="submit">Submit</button>
+        <div id="resultsModal" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">×</button>
+                        <h2 class="modal-title"><strong>Best Match</strong></h2>
+                    </div>
+                    <div class="modal-body">
+                        <h2 id="matchName"></h2>
+                        <img id="matchImg" class="img-responsive">
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
         <footer class="footer">
             <div class="container">
                 <hr>
@@ -143,6 +164,7 @@
     </div>
 
     <script type="text/javascript">
+        // Grabs the user data on click and creates and object
         $("#submit").on("click", function (event) {
             event.preventDefault();
 
@@ -164,10 +186,9 @@
                 ]
             };
 
-            console.log(user);
-
-            $.post("/api/friends", user, 
-            function (data) {
+            //Posts the user data to the server and displays server result.
+            $.post("/api/friends", user,
+                function (data) {
 
                     // Clear the form when submitting
                     $("#name").val("");
@@ -182,6 +203,9 @@
                     $("#q8").val("");
                     $("#q9").val("");
                     $("#q10").val("");
+                    $("#matchName").text(data.name);
+                    $("#matchImg").attr("src", data.photo);
+                    $("#resultsModal").modal('toggle');
 
                 });
         });
